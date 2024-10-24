@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Select a Genre and Book</h2>
+<form method="POST">
+    Genre: <select name="genre">
+        {% for genre in genres.keys() %}
+            <option value="{{ genre }}">{{ genre }}</option>
+        {% endfor %}
+    </select><br>
+    Book: <select name="book">
+        {% for book in genres[selected_genre] %}
+            <option value="{{ book }}">{{ book }}</option>
+        {% endfor %}
+    </select><br>
+    <button type="submit">Get Summary</button>
+</form>
+{% endblock %}
